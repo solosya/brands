@@ -1,0 +1,181 @@
+.card2 {
+    @include cardHeight(784px);
+
+    .content {
+        padding: 56px 5% 15px 5%;
+    }
+
+    h2, #updateSocial1 {
+        font-size: em(50px);
+        line-height: 1.16;
+    }
+
+    p.excerpt {
+        display: none;
+    }
+
+    time {
+        margin-top: 12px;
+    }
+
+    .card {
+        color: #FFFFFF;
+
+        article figure:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(0, 0, 0))
+        }
+
+        &.article.without__image {
+            color: #000000;
+        }
+
+        .category {
+            font-family: $font-family-secondary;
+            font-size: em(13px);
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        &:not(.twitter):not(.facebook) {
+            .category {
+                position: absolute;
+                top: 35px;
+                right: 0;
+                padding: 9px 12px 9px 16px;
+                background-color: rgb(247, 61, 48);
+                color: #000000;
+                z-index: 1000;
+            }
+        }
+
+        &.facebook, &.twitter {
+            .content:before {
+                position: absolute;
+                bottom: 5%;
+                left: 5%;
+            }
+        }
+
+        &.instagram, &.vimeo, &.youtube {
+            .content:before {
+                margin-bottom: 16px;
+            }
+        }
+
+        &.without__image.article {
+            background: #FFF;
+            color: #000;
+
+            .category {
+                color: #000000;
+            }
+
+            .content:after {
+                content: "";
+                background: transparent;
+                opacity: 1;
+            }
+        }
+    }
+
+    .twitter, .facebook {
+        .content {
+            justify-content: flex-start;
+        }
+
+        h2, #updateSocial1 {
+            font-size: em(48px);
+            line-height: 1.25;
+        }
+
+        &.without__image {
+            color: #FFFFFF;
+        }
+        time {
+            margin-top: 17px;
+        }
+    }
+}
+
+.card2 {
+    &-desktop {
+        @extend .card2 !optional;
+        @media (min-width: $sm-break) {
+            @include make-sm-column(6);
+        }
+    }
+
+    &-tablet {
+        @extend .card2 !optional;
+    }
+
+    &-mobile {
+        @extend .card2 !optional;
+        @media (max-width: $sm-break) {
+            @include cardHeight(364px);
+
+            .card {
+                article figure:before {
+                }
+
+                &.article.without__image {
+                }
+
+                .category {
+                    font-family: $font-family-secondary;
+                    font-size: em(12px);
+                    font-weight: 700;
+                    text-transform: uppercase;
+                }
+
+                &:not(.twitter):not(.facebook) {
+                    .category {
+                        position: absolute;
+                        font-size: em(9px);
+                        top: 28px;
+                        right: 0;
+                        padding: 6px 10px 6px 10px;
+                        background-color: rgb(247, 61, 48);
+                        color: #000000;
+                        z-index: 1000;
+                    }
+                }
+
+
+                .content {
+                    padding: 35px 10% 5px 5%;
+
+                    time {
+                        font-size: em(10px);
+                    }
+                }
+
+                h2, #updateSocial1 {
+                    font-size: em(25px);
+                    line-height: 1.16;
+                }
+
+                p.excerpt {
+                    display: none;
+                }
+
+                .twitter, .facebook, .instagram {
+                    .content {
+                    }
+
+                    h2, #updateSocial1 {
+                        font-size: em(20px);
+                        line-height: 1.3;
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+    }
+}

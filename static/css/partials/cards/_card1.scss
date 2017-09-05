@@ -1,0 +1,174 @@
+.card1 {
+    @include cardHeight(900px);
+    margin-bottom: 120px;
+
+    .content {
+        padding: 56px 17% 148px 56%;
+    }
+
+    h2, #updateSocial1 {
+        font-size: rem(62px);
+        line-height: 1.16;
+    }
+
+    p.excerpt {
+        display: block;
+        padding-top: 22px;
+        font-size: rem(18px);
+        line-height: 1.33;
+        letter-spacing: 0.6px;
+    }
+
+    time {
+        margin-top: 12px;
+    }
+
+    .card {
+        color: #FFFFFF;
+        float: left;
+
+        article figure {
+            position: relative;
+            width: 100%;
+            background: #0a88ff;
+
+            picture {
+                width: 100%;
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(0, 0, 0));
+                    opacity: .6;
+                    z-index: 10;
+                }
+            }
+
+            img {
+                object-fit: cover;
+                height: 900px;
+                width: 100%;
+
+            }
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgb(0, 0, 0));
+                z-index: 10;
+            }
+        }
+
+        .category {
+            font-family: $font-family-secondary;
+            font-size: rem(12px);
+            font-weight: 700;
+            text-transform: uppercase;
+            padding-bottom: 7px;
+            letter-spacing: 0.5px;
+        }
+
+        &.facebook, &.article {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        &.facebook {
+            .content:before {
+            }
+        }
+
+        &.facebook, &.twitter, &.instagram, &.vimeo, &.youtube {
+            .content:before {
+                margin-bottom: 28px;
+            }
+        }
+    }
+
+    .twitter, .facebook, .instagram {
+        .content {
+        }
+
+        h2, #updateSocial1 {
+            font-size: rem(26px);
+            line-height: 1.23;
+            font-weight: 700;
+        }
+
+        &.without__image {
+            color: #FFFFFF;
+        }
+    }
+}
+
+.card1 {
+    &-desktop {
+        @extend .card1 !optional;
+        @media (min-width: $md-break) {
+            @include make-sm-column(12);
+        }
+    }
+
+    &-tablet {
+        @extend .card1 !optional;
+        @media (max-width: $md-break) {
+            @include make-sm-column(12);
+
+            .content {
+                padding: 56px 17% 148px 36%;
+            }
+
+            h2, #updateSocial1 {
+                font-size: rem(42px);
+                line-height: 1.14;
+            }
+        }
+    }
+
+    &-mobile {
+        @extend .card1 !optional;
+        @media (max-width: $sm-break) {
+            @include cardHeight(352px);
+
+            .content {
+                padding: 6%;
+            }
+
+            h2, #updateSocial1 {
+                font-size: rem(42px);
+                line-height: 1.14;
+            }
+
+            p.excerpt {
+                display: none;
+            }
+
+            .card {
+                article figure {
+                    picture {
+                        &:before {
+                            background-image: none;
+                        }
+                    }
+                }
+            }
+
+            .twitter, .facebook, .instagram {
+                .content {
+                }
+
+                h2, #updateSocial1 {
+                    font-size: rem(16px);
+                    line-height: 1.38;
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+}

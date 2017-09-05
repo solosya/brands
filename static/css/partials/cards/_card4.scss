@@ -1,0 +1,135 @@
+.card4 {
+    @include cardHeight(367px);
+
+    .content {
+        padding: 10px 8% 10px 8%;
+    }
+
+    h2, #updateSocial1 {
+        font-size: em(28px);
+        line-height: 1.14;
+    }
+
+    p.excerpt {
+        display: none;
+    }
+
+    time {
+        margin-top: 12px;
+    }
+
+    .card {
+        color: #FFFFFF;
+        float: left;
+
+        article figure {
+            position: relative;
+            width: 100%;
+            background: #0a88ff;
+
+            picture {
+
+                width: 100%;
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(0, 0, 0));
+                    opacity: .6;
+                    z-index: 10;
+                }
+            }
+
+            img {
+                object-fit: cover;
+            }
+        }
+
+        .category {
+            font-family: $font-family-secondary;
+            font-size: em(13px);
+            font-weight: 700;
+            text-transform: uppercase;
+            padding-bottom: 7px;
+        }
+
+        &.facebook {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        &.facebook, &.twitter {
+            .content:before {
+                position: absolute;
+                bottom: 8%;
+                left: 10%;
+            }
+        }
+
+        &.instagram, &.vimeo, &.youtube {
+            .content:before {
+                margin-bottom: 16px;
+            }
+        }
+
+        &.without__image.article {
+            background: #FFF;
+            color: #000;
+
+            .category {
+                color: color(red);
+            }
+
+            .content:after {
+                content: "";
+                background: transparent;
+                opacity: 1;
+            }
+        }
+    }
+
+    .twitter, .facebook {
+        .content {
+            padding-top: 64px;
+            justify-content: flex-start;
+        }
+    }
+    .twitter, .facebook, .instagram {
+        .content {
+        }
+
+        h2, #updateSocial1 {
+            font-size: em(18px);
+            line-height: 1.23;
+            font-weight: 700;
+        }
+
+        &.without__image {
+            color: #FFFFFF;
+        }
+        time {
+            margin-top: 17px;
+        }
+    }
+}
+
+.card4 {
+    &-desktop {
+        @extend .card4 !optional;
+        @media (min-width: $sm-break) {
+            @include make-sm-column(3);
+        }
+    }
+
+    &-tablet {
+        @extend .card4 !optional;
+    }
+
+    &-mobile {
+        @extend .card4 !optional;
+        @media (max-width: $sm-break) {
+        }
+    }
+}

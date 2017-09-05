@@ -1,0 +1,160 @@
+.card5 {
+    @include cardHeight(673px);
+
+    .content {
+        margin: 0 auto;
+        padding: 15px $grid-gutter-width;
+        max-width: $fluid-container-width;
+    }
+
+    h2, #updateSocial1 {
+        font-size: rem(48px);
+        line-height: 1.16;
+    }
+
+    p.excerpt {
+        display: none;
+    }
+
+    time {
+        margin-top: 12px;
+    }
+
+    .card {
+        color: #FFFFFF;
+        float: left;
+
+        article figure {
+            position: relative;
+            width: 100%;
+            background: #0a88ff;
+
+            picture {
+                width: 100%;
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(0, 0, 0));
+                    opacity: .6;
+                    z-index: 10;
+                }
+            }
+
+            img {
+                object-fit: cover;
+                height: 900px;
+                width: 100%;
+
+            }
+        }
+
+        .category {
+            font-family: $font-family-secondary;
+            font-size: rem(13px);
+            font-weight: 700;
+            text-transform: uppercase;
+            padding-bottom: 7px;
+        }
+
+        &.facebook, &.article {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        &.facebook, &.twitter, &.instagram, &.vimeo, &.youtube {
+            .content:before {
+                margin-bottom: 33px;
+            }
+        }
+    }
+
+    .twitter, .facebook, .instagram {
+        .content {
+        }
+
+        h2, #updateSocial1 {
+            font-size: rem(26px);
+            line-height: 1.23;
+            font-weight: 700;
+        }
+
+        &.without__image {
+            color: #FFFFFF;
+        }
+        time {
+            margin-top: 17px;
+        }
+    }
+}
+
+.card5 {
+    &-desktop {
+        @extend .card5 !optional;
+        @media (min-width: $sm-break) {
+            @include make-sm-column(12);
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    &-tablet {
+        @extend .card5 !optional;
+    }
+
+    &-mobile {
+        @extend .card5 !optional;
+        @media (max-width: $sm-break) {
+            @include cardHeight(352px);
+
+            .card {
+                article figure:before {
+                }
+
+                &.article.without__image {
+                }
+
+                .category {
+                    font-size: rem(12px);
+                }
+
+                .content {
+                    padding: 18px 5% 15px 5%;
+
+                    time {
+                        font-size: rem(10px);
+                    }
+                }
+
+                h2, #updateSocial1 {
+                    font-size: rem(30px);
+                    line-height: 1.07;
+                    letter-spacing: 0.9px;
+                }
+
+                p.excerpt {
+                    display: none;
+                }
+
+                .twitter, .facebook, .instagram {
+                    .content {
+                    }
+
+                    h2, #updateSocial1 {
+                        font-size: rem(18px);
+                        line-height: 1.33;
+                        font-weight: 700;
+                        letter-spacing: 1px;
+                    }
+                }
+                &.facebook, &.twitter, &.instagram, &.vimeo, &.youtube {
+                    .content:before {
+                        margin-bottom: 18px;
+                    }
+                }
+            }
+        }
+    }
+}

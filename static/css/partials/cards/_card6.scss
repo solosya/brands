@@ -1,0 +1,104 @@
+.card6 {
+    @include cardHeight(161px);
+
+    .content {
+        padding: 5px 5% 5px 5%;
+    }
+
+    h2, #updateSocial1 {
+        font-size: rem(18px);
+        line-height: 1;
+    }
+
+    p.excerpt {
+        display: none;
+    }
+
+    time {
+        margin-top: 13px;
+    }
+
+    .card {
+        color: #FFFFFF;
+
+        article figure:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(0, 0, 0))
+        }
+
+        &.without__image.article {
+            background: #FFF;
+            color: #000;
+
+            .category {
+                color: color(red);
+            }
+
+            .content:after {
+                content: "";
+                background: transparent;
+                opacity: 1;
+            }
+        }
+
+        .category {
+            font-family: $font-family-secondary;
+            font-size: rem(13px);
+            font-weight: 500;
+            text-transform: uppercase;
+            padding-bottom: 17px;
+        }
+
+        &.facebook, &.twitter, &.instagram, &.vimeo, &.youtube {
+            .content:before {
+                position: absolute;
+                top: 0;
+                right: 0;
+                padding: 0;
+                background-color: #FFF;
+                background-size: 26px 26px;
+                width: 50px;
+                height: 50px;
+                background-position: center;
+            }
+        }
+    }
+
+    .twitter, .facebook {
+        .content {
+            justify-content: flex-start;
+        }
+
+        h2, #updateSocial1 {
+        }
+
+        &.without__image {
+            color: #FFFFFF;
+        }
+    }
+}
+
+.card6 {
+    &-desktop {
+        @extend .card6 !optional;
+        @media (min-width: $sm-break) {
+            @include make-sm-column(3);
+        }
+    }
+
+    &-tablet {
+        @extend .card6 !optional;
+    }
+
+    &-mobile {
+        @extend .card6 !optional;
+        @media (max-width: $sm-break) {
+
+        }
+    }
+}

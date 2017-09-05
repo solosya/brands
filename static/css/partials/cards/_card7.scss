@@ -1,0 +1,168 @@
+.card7 {
+    @include cardHeight(639px);
+    margin-bottom: 120px;
+
+    .content {
+        padding: 56px 5% 136px 60%;
+    }
+
+    h2, #updateSocial1 {
+        font-size: rem(52px);
+        line-height: 1.1;
+    }
+
+    p.excerpt {
+        display: block;
+        padding-top: 8px;
+        font-size: rem(18px);
+        line-height: 1.33;
+        letter-spacing: 0.6px;
+    }
+
+    time {
+        margin-top: 12px;
+    }
+
+    .card {
+        color: #FFFFFF;
+        float: left;
+
+        article figure {
+            position: relative;
+            width: 100%;
+            background: #0a88ff;
+
+            picture {
+                width: 100%;
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(0, 0, 0));
+                    opacity: .6;
+                    z-index: 10;
+                }
+            }
+
+            img {
+                object-fit: cover;
+                height: 900px;
+                width: 100%;
+
+            }
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background-image: linear-gradient(to top, rgba(0, 0, 0, 0), rgb(0, 0, 0));
+                z-index: 10;
+            }
+        }
+
+        .category {
+            font-family: $font-family-secondary;
+            font-size: rem(12px);
+            font-weight: 700;
+            text-transform: uppercase;
+            padding-bottom: 13px;
+            letter-spacing: 0.5px;
+        }
+
+        &.facebook, &.article {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        &.facebook {
+            .content:before {
+            }
+        }
+
+        &.facebook, &.twitter, &.instagram, &.vimeo, &.youtube {
+            .content:before {
+                margin-bottom: 28px;
+            }
+        }
+    }
+
+    .twitter, .facebook, .instagram {
+        .content {
+        }
+
+        h2, #updateSocial1 {
+            font-size: rem(26px);
+            line-height: 1.23;
+            font-weight: 700;
+        }
+
+        &.without__image {
+            color: #FFFFFF;
+        }
+    }
+}
+
+.card7 {
+    &-desktop {
+        @extend .card7 !optional;
+        @media (min-width: $sm-break) {
+            @include make-sm-column(12);
+        }
+    }
+
+    &-tablet {
+        @extend .card7 !optional;
+    }
+
+    &-mobile {
+        @extend .card7 !optional;
+        @media (max-width: $sm-break) {
+            @include cardHeight(232px);
+
+            .content {
+                padding: 20px 8%;
+            }
+
+            h2, #updateSocial1 {
+                font-size: rem(25px);
+                line-height: 1.16;
+            }
+
+            p.excerpt {
+                font-size: rem(14px);
+                max-height: 5em;
+            }
+
+            .card {
+                .category {
+                    padding-bottom: 12px;
+                }
+
+                article figure {
+                    picture {
+                        &:before {
+                            background-image: none;
+                        }
+                    }
+                }
+            }
+
+            .twitter, .facebook, .instagram {
+                .content {
+                }
+
+                h2, #updateSocial1 {
+                    font-size: rem(15px);
+                    line-height: 1.27;
+                    font-weight: 700;
+                    letter-spacing: 0.4px;
+                }
+            }
+        }
+    }
+}

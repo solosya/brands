@@ -1,0 +1,220 @@
+#mainHeader {
+    .navbar-brand {
+        img {
+            padding-right: 10px;
+        }
+
+        float: left;
+        color: #FFFFFF;
+        font-size: 18px;
+        letter-spacing: 0.6px;
+    }
+
+    nav {
+        color: #FFFFFF;
+        float: right;
+        font-family: $font-family-secondary;
+
+        ul.menu {
+            @extend %transition;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: flex-end;
+            width: 100%;
+
+            > li {
+                display: inline-block;
+                flex: 0 1 auto;
+                white-space: nowrap;
+                margin: 12px 40px 0 0;
+                list-style-type: none;
+                position: relative;
+
+                a {
+                    color: #FFFFFF;
+                    font-size: em(18px);
+                    letter-spacing: 0.6px;
+                    padding-top: 10px;
+                    text-transform: uppercase;
+                }
+
+                &#menu-item-search {
+                    margin-top: 0;
+                    > ul.search-sub-menu {
+                        display: none;
+                        position: absolute;
+                        top: 40px;
+                        right: 0;
+                        padding: 5px;
+                        background: rgba(255, 255, 255, 1);
+                        border: 1px solid rgba(0, 0, 0, 0.5);
+                        width: 400px;
+
+                        input.field {
+                            width: 100%;
+                            background-color: #FFF;
+                            color: #1a1818;
+                            outline: none;
+                            border: 1px solid rgba(0, 0, 0, 0.5);
+                            padding: 4px 10px;
+
+                            @media screen and (max-width: $md-break) {
+                                width: 78%;
+                            }
+                        }
+
+                        input.submit {
+                            position: absolute;
+                            right: 0;
+                            top: 0;
+                            background-image: url(../icons/search-blk.svg);
+                            background-size: cover;
+                            background-color: transparent;
+                            width: 30px;
+                            height: 30px;
+                            border: 0;
+                            font-size: 30px;
+                            padding: 0 10px;
+                        }
+
+                        .search-container {
+                            width: 100%;
+                            margin: 0 auto;
+                            float: none;
+                            //padding-top: 15px;
+                            //padding-bottom: 0px;
+                            //padding-left: 20px;
+                            //padding-right: 20px;
+                            list-style: none;
+                        }
+
+                        .btn-default {
+                            background-color: transparent;
+                            border: 0;
+                        }
+
+                        &.active {
+                            display: inline-block;
+                        }
+                        a {
+                            display: inline-block;
+                        }
+                    }
+
+                    .search-icon {
+                        background-image: url(../images/search-icon.svg);
+                        width: 35px;
+                        height: 39px;
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+    }
+
+    .navbar-toggler {
+        @media (min-width: $md-break) {
+            display: none;
+        }
+    }
+    @media (max-width: $md-break) {
+        .navbar-toggler {
+            position: absolute;
+            right: 19px;
+            top: 10px;
+            height: 20px;
+            width: 31px;
+            border: none;
+            background-color: transparent;
+            background-image: url(../images/menu-open.svg);
+            background-size: cover;
+            outline: none;
+
+            .activeNav & {
+                background-image: url(../images/menu-close.svg);
+                height: 24px;
+                width: 24px;
+            }
+        }
+
+        nav {
+            width: 100%;
+
+            ul.menu {
+                position: absolute;
+                left: 0;
+                right: 0;
+                display: flex;
+                max-height: 0em;
+                overflow: hidden;
+                padding: 0;
+                margin: 15px 0 0 0;
+
+                > li {
+                    display: block;
+                    width: 100%;
+                    background: rgb(0, 0, 0);
+                    margin: 0;
+                    padding: 0;
+                    border-top: 1px solid  rgba(255, 255, 255, 0.3);
+
+                    a {
+                        display: block;
+                        color: rgb(255, 255, 255);
+                        font-size: 18px;
+                        line-height: 1.11;
+                        letter-spacing: 0.6px;
+                        padding: 15px 19px;
+                    }
+                }
+
+                &.active {
+                    max-height: 30em;
+                }
+            }
+
+            ul.menu > li {
+                order: 2;
+
+                &#menu-item-search {
+                    order: 1;
+                    background: rgb(255, 255, 255);
+
+                    .search-icon {
+                        display: inline-block;
+                        margin: 8px 0 8px 20px;
+                        width: 28px;
+                        height: 31px;
+                    }
+
+                    > ul.search-sub-menu {
+                        display: inline-block;
+                        top: 3px;
+                        right: 0;
+                        border: none;
+                        background-color: transparent;
+                        text-align: right;
+
+                        input.field {
+                            text-align: right;
+                            border: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/*
+.site-header,
+.menu-mobile,
+.show-on-tablet > ul,
+.sb-custom-menu,
+.sb-custom-menu > div > ul > li > ul,
+.sb-custom-menu > div > ul li.now-active > a:after{
+    @extend %transition;
+    z-index:100000;
+}
+*/

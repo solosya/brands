@@ -1,0 +1,128 @@
+{% import "partials/quotes.twig" as quotes %}
+
+{% set blogInfo = _Blog.getBlog() %}
+
+
+{{ set(this, 'title', article.title) }}
+{% set networkData = _Network.getNetworkData() %}
+
+{% set articlesArr = _Blog.getBlogFeed({'limit': limit, 'offset': 0}) %}
+{% set articles = articlesArr.articles %}
+{% set articleCount = 1 %}
+
+{% set currentPage = {
+"title": this.title,
+"link": article.url
+} %}
+
+
+{% set parentUrl = article.blog.url | split('@')[1] | replace({'-videos': '', '-notes': ''}) %}
+{% set parentBlog = {
+"title": "",
+"link": ""
+} %}
+
+{% set parentPage = {
+"title": "",
+"link": ""
+} %}
+
+{% set sectionMap = blogInfo.blogHeaderMenu %}
+
+{% set publishedDate = _AppHelper.getDateTimeBasedOnTimezone(article.publishedDate, 'j M Y') %}
+
+{% for key, value in sectionMap %}
+
+
+    {% if value['children'] | length > 0 %}
+        {% for key, childvalue in value['children'] %}
+
+            {% if childvalue.link | split('@')[1] == parentUrl %}
+                {% set parentBlog = parentBlog|merge({('title'): childvalue.blogTitle}) %}
+                {% set parentBlog = parentBlog|merge({('link'): childvalue.link}) %}
+            {% endif %}
+
+
+            {% if childvalue.blogTitle | lower == parentBlog.title | lower %}
+                {% set parentPage = parentPage|merge({('title'): value.blogTitle}) %}
+                {% set parentPage = parentPage|merge({('link'): value.link}) %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endfor %}
+
+
+<main id="main" class="" role="main">
+    {#    <div class="container" >
+                {{this.render('partials/breadcrumb.twig', {
+                    blogInfo: blogInfo,
+                    blogImage:blogImage,
+                    networkData: networkData,
+                    crumb: [parentPage, parentBlog, currentPage],
+
+                }) | raw}}
+        </div>#}
+    <article class="article-main">
+        <div class="container">
+            <div class="page-content">
+                <div class="row">
+                    <div class="col-md-9 rightBorder">
+                        <div class="content-wrapper">
+                            <div class="content-block-top">
+                                <div class="category {{ social.source }}">{{ social.source }}{{ article.label  }}</div>
+                                <h1>{{ quotes.smarten(article.title) }}</h1>
+                                <h2>By {{ article.createdBy['displayName'] }} <time datetime="{{ publishedDate }}">{{ publishedDate }}</time>
+                                </h2>
+                            </div>
+
+                            <div class="article_content">
+                                <p>{{ article.content | _resizeImages({'width': 500}) | raw }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h2 class="artcle__related-title">Suggested videos</h2>
+                                {% if articles[articleCount] %}
+                                    {% for i in 0..3 if articles[i] %}
+                                            {{ this.render('partials/_single-article.twig', {
+                                                article: articles[3],
+                                                position: articleCount + 1,
+                                                containerClass: 'card6-mobile'
+                                            }) | raw }}
+                                            {% set articleCount = (dev) ? articleCount : articleCount + 1 %}
+
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <h2 class="artcle__related-title">Related articles</h2>
+                        </div>
+                        {% if articles[articleCount] %}
+                            {% set articleView = [
+                            'card4',
+                            'card4',
+                            'card4',
+                            'card4',
+                            ] %}
+                            {% for key, value in articleView if articles[key] %}
+                                {{ this.render('partials/_single-article.twig', {
+                                    article: articles[articleCount],
+                                    position: articleCount + 1,
+                                    containerClass: value ~ '-desktop ' ~ value ~ '-tablet ' ~ value ~ '-mobile',
+                                }) | raw }}
+                                {% set articleCount = (dev) ? articleCount : articleCount + 1 %}
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+
+            </div>
+    </article>
+</main>
+

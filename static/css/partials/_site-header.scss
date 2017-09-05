@@ -1,0 +1,66 @@
+.site-header {
+    position: absolute;
+    padding: 33px 0 15px;
+    width: 100%;
+    top: 0;
+    z-index: 200;
+
+    @media (max-width: $md-break) {
+        padding: 15px 0 15px;
+    }
+
+    @media (max-width: $sm-break) {
+        .container-fluid {
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+    }
+}
+
+body:not(.hasHero) .site-header {
+    position: relative;
+    background: #000000;
+}
+
+.site-header.activeNav {
+    background: #000000;
+}
+
+.showOnScroll {
+    top: 0 !important;
+}
+
+#menu-search {
+    border: 1px solid color(dark);
+    position: relative;
+    @media screen and (max-width: $mobile-break) {
+        border: none;
+    }
+}
+
+.site-header.mobile-menu-active {
+    .site-header-main {
+        background: color(dark);
+
+        .header-top {
+            h1 {
+                color: white;
+            }
+
+            nav.sb-custom-menu {
+                > a {
+                    margin-top: 0;
+                    background-image: url(../images/mobile-close.svg);
+                    background-size: cover;
+                    width: 20px;
+                    height: 20px;
+                }
+            }
+        }
+        .navbar-brand {
+
+            // background-size: 40px;
+        }
+
+    }
+}
