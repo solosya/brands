@@ -1,6 +1,6 @@
 .card7 {
     @include cardHeight(639px);
-    margin-bottom: 120px;
+    _margin-bottom: 120px;
 
     .content {
         padding: 56px 5% 136px 60%;

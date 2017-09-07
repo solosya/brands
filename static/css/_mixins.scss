@@ -1,25 +1,37 @@
+@mixin headingDash($spacing:9px) {
+    &:after {
+        width: 49px;
+        height: 1px;
+        background: rgb(0, 0, 0);
+        display: block;
+        content: '';
+        // margin-bottom: 28px;
+        margin-top: $spacing;
+    }
+}
+
 @mixin tintbefore($value:0.4) {
-	&:before {
-	  content: '';
-	  position: absolute;
-	  top: 0;
-	  bottom: 0;
-	  width: 100%;
-	  opacity: $value;
-	  background-color: #000;
-	  z-index: 1;
-	}
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        opacity: $value;
+        background-color: #000;
+        z-index: 1;
+    }
 }
 
 @mixin gradientbefore() {
-	&:before {
-		content: '';
-		position: absolute;
-		top: 0;
-		height:100%;
-		bottom: 0;
-		width: 100%;
-		z-index: 1;
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        height: 100%;
+        bottom: 0;
+        width: 100%;
+        z-index: 1;
         background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.0), #000000);
         background-image: -o-linear-gradient(rgba(0, 0, 0, 0.0), #000000);
         background-image: linear-gradient(rgba(0, 0, 0, 0.0), #000000);
@@ -27,108 +39,102 @@
 }
 
 @mixin gradientafter() {
-	&:after {
-		content: '';
-		position: absolute;
-		top: 0;
-		bottom: 0;
-		width: 100%;
-		z-index: 1;
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        z-index: 1;
         background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.0), #000000);
         background-image: -o-linear-gradient(rgba(0, 0, 0, 0.0), #000000);
         background-image: linear-gradient(rgba(0, 0, 0, 0.0), #000000);
     }
 }
 
-
 @mixin card-image-size($width, $height) {
-	width: $width;
+    width: $width;
     height: $height;
 }
 
 @mixin image-full($margin:0, $width:100%) {
-	> figure{
-		position: absolute;
-		left: $margin;
-		right: $margin;
-		top: 0;
-		height:100%;
-		width: $width;
-	}
+    > figure {
+        position: absolute;
+        left: $margin;
+        right: $margin;
+        top: 0;
+        height: 100%;
+        width: $width;
+    }
 }
 
 @mixin card-image-full($margin: 0) {
-	
-	$width : 100%;
 
-	@if $margin != 0 {
-		$width : auto
-	}
+    $width: 100%;
 
-	> article {
-		@include image-full($margin,$width);
-	}
+    @if $margin != 0 {
+        $width: auto
+    }
+
+    > article {
+        @include image-full($margin, $width);
+    }
 }
 
 @mixin card-image-left($width, $height:100%) {
-	> article {
-		> figure{
-			@include card-image-size($width, $height);
-			float: left;
-		}
-		> .content {
-			display:block;
-			width:auto;
-		}
-	}
+    > article {
+        > figure {
+            @include card-image-size($width, $height);
+            float: left;
+        }
+        > .content {
+            display: block;
+            width: auto;
+        }
+    }
 }
-
 
 @mixin card-image-right($width, $height:100%) {
-	> article {
-		> figure{
-			@include card-image-size($width, $height);
-			float: right;
-		}
-		> .content {
-			display:block;
-			width:auto;
-		}
-	}
+    > article {
+        > figure {
+            @include card-image-size($width, $height);
+            float: right;
+        }
+        > .content {
+            display: block;
+            width: auto;
+        }
+    }
 }
 
-
 @mixin card-image-top($width, $height:100%) {
-	> article {
-		> figure{
-			@include card-image-size($width, $height);
-			float: none;
-		}
-		> .content {
-			display:block;
-		}
-	}
+    > article {
+        > figure {
+            @include card-image-size($width, $height);
+            float: none;
+        }
+        > .content {
+            display: block;
+        }
+    }
 }
 
 @mixin card-image-bottom($width, $height:100%) {
-	> article {
+    > article {
 
-		@include flexbox;
-		@include flex-direction(column);
+        @include flexbox;
+        @include flex-direction(column);
 
-		> figure{
-			@include card-image-size($width, $height);
-			order:2;
-		}
-		> .content {
-			order:1;
-			display:block;
-		}
-	}
+        > figure {
+            @include card-image-size($width, $height);
+            order: 2;
+        }
+        > .content {
+            order: 1;
+            display: block;
+        }
+    }
 }
-
-
-
 
 // // Responsive sizes
 // @mixin phone {
@@ -182,13 +188,7 @@
 // 	}
 // }
 
-
-
-
-
-
 // // Default mixins for application
-
 
 // // Default image settings when used as a css background
 // @mixin image_background {
@@ -198,21 +198,20 @@
 // 	background-position:0% 50%;
 // }
 
-
 // // Default image for Dropzone
 @mixin image_background_Dropzone {
-    background-image:url("../images/spritemap@2x.png");
-    background-position:center center;
-    background-repeat:no-repeat;
-    background-size:428px auto;
+    background-image: url("../images/spritemap@2x.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 428px auto;
 }
 
 // // Default image for Dropzone
 @mixin image_background_DropzoneMessage {
-    background-image:url("../images/uploadsprite.svg");
-    background-position:center center;
-    background-repeat:no-repeat;
-    background-size:428px auto;
+    background-image: url("../images/uploadsprite.svg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 428px auto;
 }
 
 // // Default image settings for Facebook
@@ -259,7 +258,6 @@
 //   	background-image: url(../images/icons/category-news.svg);
 // }
 
-
 // // Default image settings for Like
 // @mixin image_background_social_likes {
 //   	background-image:url('../images/icons/social-like.svg');
@@ -286,10 +284,9 @@
 // 	letter-spacing:0.5px;
 // }
 
-
 @mixin border-radius($radius) {
-	-webkit-border-radius: $radius;
-	border-radius: $radius;
+    -webkit-border-radius: $radius;
+    border-radius: $radius;
 }
 
 // // Single side border-radius
@@ -319,14 +316,12 @@
 // 	 border-top-left-radius: $radius;
 // }
 
-
 // @mixin box-shadow($shadow) {
 //   -webkit-box-shadow:$shadow;
 //      -moz-box-shadow:$shadow;
 //       -ms-box-shadow:$shadow;
 //           box-shadow:$shadow;
 // }
-
 
 // @mixin border($border) {
 //   	border:$border;
@@ -338,38 +333,42 @@
 // 	  filter:alpha(opacity=$opacity-ie);
 // }
 
-
 // /* Padding */
 @mixin padding($padding) {
-  	padding:$padding;
+    padding: $padding;
 }
+
 @mixin padding-top($padding-top) {
-  	padding-top:$padding-top;
+    padding-top: $padding-top;
 }
+
 @mixin padding-right($padding-right) {
-  	padding-right:$padding-right;
+    padding-right: $padding-right;
 }
+
 @mixin padding-bottom($padding-bottom) {
-  	padding-bottom:$padding-bottom;
+    padding-bottom: $padding-bottom;
 }
+
 @mixin padding-left($padding-left) {
-  	padding-left:$padding-left;
+    padding-left: $padding-left;
 }
 
 // /* Transition */
 @mixin transition($transition) {
-	transition: all 0.3s ease-in;
-	-moz-transition: all 0.3s ease-in;
-	-o-transition: all 0.3s ease-in;
-	-webkit-transition: all 0.3s ease-in;
-	-ms-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in;
+    -moz-transition: all 0.3s ease-in;
+    -o-transition: all 0.3s ease-in;
+    -webkit-transition: all 0.3s ease-in;
+    -ms-transition: all 0.3s ease-in;
 }
 
 // /* Sizes */
 @mixin size($width, $height: $width) {
-  	width: $width;
-  	height: $height;
+    width: $width;
+    height: $height;
 }
+
 // @mixin min-size($min-width, $min-height: $min-width) {
 //   	min-width: $min-width;
 //   	min-height: $min-height;
@@ -420,22 +419,22 @@
 
 // // Image Cover Size
 @mixin background-size($background-size) {
-	-webkit-background-size:$background-size; /* Chrome, Safari, Opera */
-	   -moz-background-size:$background-size; /* Mozilla Firefox */
-	    -ms-background-size:$background-size; /* IE 9 */
-		 -o-background-size:$background-size;
-		    background-size:$background-size;
+    -webkit-background-size: $background-size; /* Chrome, Safari, Opera */
+    -moz-background-size: $background-size; /* Mozilla Firefox */
+    -ms-background-size: $background-size; /* IE 9 */
+    -o-background-size: $background-size;
+    background-size: $background-size;
 }
-
 
 // // Transform
 @mixin transform($transforms) {
-	-webkit-transform:$transforms; /* Chrome, Safari, Opera */
-	   -moz-transform:$transforms; /* Mozilla Firefox */
-	     -o-transform:$transforms;
-	    -ms-transform:$transforms; /* IE 9 */
-            transform:$transforms;
+    -webkit-transform: $transforms; /* Chrome, Safari, Opera */
+    -moz-transform: $transforms; /* Mozilla Firefox */
+    -o-transform: $transforms;
+    -ms-transform: $transforms; /* IE 9 */
+    transform: $transforms;
 }
+
 // // rotate
 // @mixin rotate ($deg) {
 //   @include transform(rotate(#{$deg}deg));
@@ -462,7 +461,6 @@
 //             transform-origin:$origin;
 // }
 
-
 // /* Touch Scroll */
 // @mixin overflow-scrolling($overflow-scrolling) {
 // 	-webkit-overflow-scrolling:$overflow-scrolling;
@@ -480,8 +478,6 @@
 // 	-webkit-transition-delay:0.3s;
 // 	-ms-transition-delay:0.3s;
 // }
-
-
 
 // // Flexbox Mixins
 // // http://philipwalton.github.io/solved-by-flexbox/
@@ -545,14 +541,16 @@
 // // (Placeholder selectors for each type, for those who rather @extend)
 
 @mixin flexbox {
-	display:-webkit-box;
-	display:-webkit-flex;
-	display:-moz-flex;
-	display:-ms-flexbox;
-	display:flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
 }
 
-%flexbox { @include flexbox; }
+%flexbox {
+    @include flexbox;
+}
 
 // //----------------------------------
 
@@ -580,24 +578,25 @@
 // // http://w3.org/tr/css3-flexbox/#flex-direction-property
 
 @mixin flex-direction($value:row) {
-	@if $value == row-reverse {
-		-webkit-box-direction:reverse;
-		-webkit-box-orient:horizontal;
-	} @else if $value == column {
-		-webkit-box-direction:normal;
-		-webkit-box-orient:vertical;
-	} @else if $value == column-reverse {
-		-webkit-box-direction:reverse;
-		-webkit-box-orient:vertical;
-	} @else {
-		-webkit-box-direction:normal;
-		-webkit-box-orient:horizontal;
-	}
-	-webkit-flex-direction:$value;
-	-moz-flex-direction:$value;
-	-ms-flex-direction:$value;
-	flex-direction:$value;
+    @if $value == row-reverse {
+        -webkit-box-direction: reverse;
+        -webkit-box-orient: horizontal;
+    } @else if $value == column {
+        -webkit-box-direction: normal;
+        -webkit-box-orient: vertical;
+    } @else if $value == column-reverse {
+        -webkit-box-direction: reverse;
+        -webkit-box-orient: vertical;
+    } @else {
+        -webkit-box-direction: normal;
+        -webkit-box-orient: horizontal;
+    }
+    -webkit-flex-direction: $value;
+    -moz-flex-direction: $value;
+    -ms-flex-direction: $value;
+    flex-direction: $value;
 }
+
 // 	// Shorter version:
 // 	@mixin flex-dir($args...) { @include flex-direction($args...); }
 
@@ -814,19 +813,19 @@
 // // http://w3.org/tr/css3-flexbox/#align-items-property
 
 @mixin align-items($value:stretch) {
-	@if $value == flex-start {
-		-webkit-box-align:start;
-		-ms-flex-align:start;
-	} @else if $value == flex-end {
-		-webkit-box-align:end;
-		-ms-flex-align:end;
-	} @else {
-		-webkit-box-align:$value;
-		-ms-flex-align:$value;
-	}
-	-webkit-align-items:$value;
-	-moz-align-items:$value;
-	align-items:$value;
+    @if $value == flex-start {
+        -webkit-box-align: start;
+        -ms-flex-align: start;
+    } @else if $value == flex-end {
+        -webkit-box-align: end;
+        -ms-flex-align: end;
+    } @else {
+        -webkit-box-align: $value;
+        -ms-flex-align: $value;
+    }
+    -webkit-align-items: $value;
+    -moz-align-items: $value;
+    align-items: $value;
 }
 
 // //----------------------------------
@@ -837,17 +836,17 @@
 // // Default:auto
 
 @mixin align-self($value:auto) {
-	// No Webkit Box Fallback.
-	-webkit-align-self:$value;
-	-moz-align-self:$value;
-	@if $value == flex-start {
-		-ms-flex-item-align:start;
-	} @else if $value == flex-end {
-		-ms-flex-item-align:end;
-	} @else {
-		-ms-flex-item-align:$value;
-	}
-	align-self:$value;
+    // No Webkit Box Fallback.
+    -webkit-align-self: $value;
+    -moz-align-self: $value;
+    @if $value == flex-start {
+        -ms-flex-item-align: start;
+    } @else if $value == flex-end {
+        -ms-flex-item-align: end;
+    } @else {
+        -ms-flex-item-align: $value;
+    }
+    align-self: $value;
 }
 
 // //----------------------------------------------------------------------
@@ -865,15 +864,15 @@
 // // http://w3.org/tr/css3-flexbox/#align-content-property
 
 @mixin align-content($value:stretch) {
-	// No Webkit Box Fallback.
-	-webkit-align-content:$value;
-	-moz-align-content:$value;
-	@if $value == flex-start {
-		-ms-flex-line-pack:start;
-	} @else if $value == flex-end {
-		-ms-flex-line-pack:end;
-	} @else {
-		-ms-flex-line-pack:$value;
-	}
-	align-content:$value;
+    // No Webkit Box Fallback.
+    -webkit-align-content: $value;
+    -moz-align-content: $value;
+    @if $value == flex-start {
+        -ms-flex-line-pack: start;
+    } @else if $value == flex-end {
+        -ms-flex-line-pack: end;
+    } @else {
+        -ms-flex-line-pack: $value;
+    }
+    align-content: $value;
 }

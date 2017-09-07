@@ -40,7 +40,16 @@
     background-color: #333333;
     width: 100%;
 
-
+    /*h2 {
+        &:after {
+            width: auto;
+            height: auto;
+            background: rgb(0, 0, 0);
+            display: block;
+            content: '';
+            margin-top: auto;
+        }
+    }*/
 
     &.article {
         background: #FFFFFF;

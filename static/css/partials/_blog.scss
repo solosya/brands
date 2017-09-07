@@ -1,0 +1,95 @@
+.blog-main {
+    .section-header {
+        .profileImage {
+            border-radius: 50%;
+            max-width: 170px;
+            min-width: 130px;
+            width: 100%;
+            height: auto;
+
+            @media (max-width: $sm-break) {
+                max-width: 70px;
+                min-width: 70px;
+                float: left;
+            }
+        }
+
+        .header__heading {
+            margin-bottom: $grid-gutter-width - 9;
+            @media (max-width: $sm-break) {
+                margin-left: 90px;
+            }
+        }
+
+        p {
+            font-size: rem(17px);
+            font-weight: 600;
+            line-height: 1.53;
+            letter-spacing: 0.9px;
+
+            @media (max-width: $sm-break) {
+                font-size: rem(13px);
+                font-weight: 600;
+                line-height: 1.38;
+                letter-spacing: 0.7px;
+            }
+        }
+
+        .followLink {
+            text-align: right;
+
+            @media (max-width: $sm-break) {
+                text-align: left;
+                margin-top: 20px;
+            }
+        }
+    }
+
+    .miniProfiles {
+        margin-top: $grid-gutter-width;
+        margin-bottom: $grid-gutter-width;
+
+        @media (max-width: $sm-break) {
+            .section-header {
+                margin-bottom: $grid-gutter-width / 2;
+            }
+        }
+        .profileImage {
+            border-radius: 50%;
+            max-width: 80px;
+            float: left;
+            margin-right: 20px;
+        }
+
+        h2 {
+            font-size: rem(30px);
+            font-weight: 600;
+            line-height: 1.33;
+            letter-spacing: 0.6px;
+        }
+
+        .miniProfile {
+            @media (max-width: $sm-break) {
+                margin-left: -($grid-gutter-width / 2);
+                margin-right: -($grid-gutter-width / 2);
+            }
+            margin-bottom: $grid-gutter-width / 2;
+
+            h2 {
+                margin-top: 15px;
+                font-size: rem(20px);
+                line-height: 1.2;
+                letter-spacing: 0.4px;
+                text-transform: uppercase;
+            }
+
+            > a {
+                font-size: rem(14px);
+                line-height: 1.86;
+                letter-spacing: 0.3px;
+                color: #6e6e6e;
+            }
+        }
+
+    }
+}

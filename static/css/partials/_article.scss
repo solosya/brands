@@ -51,7 +51,6 @@ body.article {
         margin-bottom: 96px;
 
         .page-content {
-            margin-top: 40px;
             clear: both;
             font-size: rem(17);
             font-weight: normal;
@@ -328,6 +327,7 @@ body.article {
             }
 
         }
+
         .artcle__related-title {
             font-size: rem(30px);
             letter-spacing: 0.6px;
@@ -336,16 +336,7 @@ body.article {
             font-weight: 600;
             text-transform: uppercase;
             color: rgb(0, 0, 0);
-
-            &:after {
-                width: 49px;
-                height: 1px;
-                background: rgb(0, 0, 0);
-                display: block;
-                content: '';
-                // margin-bottom: 28px;
-                margin-top: 17px;
-            }
+            @include headingDash(17px);
         }
 
         .related-articles {
