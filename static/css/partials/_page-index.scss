@@ -3,7 +3,7 @@
 }
 
 @media (max-width: $sm-break) {
-    .container-fluid {
+    .site-index .container-fluid {
         margin-left: 20px;
         margin-right: 20px;
     }
@@ -14,7 +14,6 @@
     section {
       margin-bottom:80px;
     }
-
 
     .home-main-stories {
         height:400px;
@@ -69,5 +68,4 @@
         }
 
     }
-
 }

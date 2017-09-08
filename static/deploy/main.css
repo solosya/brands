@@ -2916,7 +2916,7 @@ body:not(.hasHero) .site-header {
   max-width: 1275px; }
 
 @media (max-width: 768px) {
-  .container-fluid {
+  .site-index .container-fluid {
     margin-left: 20px;
     margin-right: 20px; } }
 
@@ -2977,15 +2977,88 @@ body:not(.hasHero) .site-header {
 
 body.article {
   background: #fff; }
+  body.article .hero-banner {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    height: 900px; }
+    body.article .hero-banner .card {
+      height: 900px;
+      display: block; }
+      body.article .hero-banner .card figure {
+        height: 900px; }
+        body.article .hero-banner .card figure picture {
+          height: 900px; }
+          body.article .hero-banner .card figure picture img {
+            height: 900px; }
+    @media screen and (max-width: 768px) {
+      body.article .hero-banner {
+        height: 351px; }
+        body.article .hero-banner .card {
+          height: 351px;
+          display: block; }
+          body.article .hero-banner .card figure {
+            height: 351px; }
+            body.article .hero-banner .card figure picture {
+              height: 351px; }
+              body.article .hero-banner .card figure picture img {
+                height: 351px; } }
+    body.article .hero-banner .hero-banner-article figure {
+      z-index: 2; }
+      body.article .hero-banner .hero-banner-article figure:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-image: -webkit-gradient(linear, left bottom, left top, from(transparent), to(black));
+        background-image: linear-gradient(to top, transparent, black);
+        z-index: 10; }
+      body.article .hero-banner .hero-banner-article figure picture:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(black));
+        background-image: linear-gradient(to bottom, transparent, black);
+        opacity: .6;
+        z-index: 10; }
+      body.article .hero-banner .hero-banner-article figure img {
+        -o-object-fit: cover;
+           object-fit: cover;
+        width: 100%; }
+      body.article .hero-banner .hero-banner-article figure .container-fluid {
+        position: relative; }
+      body.article .hero-banner .hero-banner-article figure figcaption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background: white;
+        z-index: 30;
+        padding: 15px 25px;
+        font-size: 14px;
+        font-family: "Oswald", Helvetica, Arial, sans-serif;
+        width: 280px; }
+        @media screen and (max-width: 768px) {
+          body.article .hero-banner .hero-banner-article figure figcaption {
+            margin-bottom: 0;
+            width: auto;
+            right: 0; } }
+        @media screen and (min-width: 768px) and (max-width: 1200px) {
+          body.article .hero-banner .hero-banner-article figure figcaption {
+            left: 20px;
+            right: 20px; } }
 
-.article .rightBorder:after {
-  content: " ";
-  border-right: 1px solid #97999c;
-  position: absolute;
-  top: 0;
-  right: -50px;
-  right: 0;
-  bottom: 0; }
+@media screen and (min-width: 768px) {
+  .article .rightBorder:after {
+    content: " ";
+    border-right: 1px solid #97999c;
+    position: absolute;
+    top: 0;
+    right: -8%;
+    bottom: 0; } }
 
 .article div.social-share {
   width: 172px;
@@ -3021,7 +3094,7 @@ body.article {
     letter-spacing: 0.9px; }
     @media screen and (max-width: 768px) {
       .article article.article-main .page-content {
-        margin-top: 35px; } }
+        margin-top: 15px; } }
     .article article.article-main .page-content .content-block-top {
       margin-bottom: 17px; }
       .article article.article-main .page-content .content-block-top h1 {
@@ -3036,7 +3109,10 @@ body.article {
         text-transform: uppercase; }
         @media screen and (max-width: 768px) {
           .article article.article-main .page-content .content-block-top h1 {
-            margin-top: 40px; } }
+            margin-top: 20px;
+            font-size: 1.5625rem;
+            line-height: 1.16;
+            letter-spacing: 0.5px; } }
       .article article.article-main .page-content .content-block-top h2 {
         font-size: 0.75rem;
         font-weight: bold;
@@ -3044,11 +3120,13 @@ body.article {
         letter-spacing: 0.5px;
         margin-top: 10px;
         color: black;
-        font-family: "acumin-pro", Helvetica, Arial, sans-serif; }
+        font-family: "acumin-pro", Helvetica, Arial, sans-serif;
+        font-weight: 500; }
         @media screen and (max-width: 620px) {
           .article article.article-main .page-content .content-block-top h2 {
             margin-top: 5px;
-            line-height: 1.67; } }
+            font-size: 12px;
+            letter-spacing: 0.5px; } }
       .article article.article-main .page-content .content-block-top .category {
         font-size: 0.75rem;
         font-weight: bold;
@@ -3104,26 +3182,36 @@ body.article {
         @media screen and (max-width: 768px) {
           .article article.article-main .page-content .article_content a {
             word-wrap: break-word; } }
-      .article article.article-main .page-content .article_content figure {
-        margin: 50px 0;
-        position: relative; }
+      @media screen and (min-width: 768px) {
+        .article article.article-main .page-content .article_content figure {
+          margin: 50px 0;
+          position: relative; }
+          .article article.article-main .page-content .article_content figure img {
+            float: left;
+            width: 50%;
+            height: auto; }
+          .article article.article-main .page-content .article_content figure figcaption {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 40%;
+            font-size: 0.875rem;
+            font-family: "Oswald", Helvetica, Arial, sans-serif;
+            line-height: 1.53;
+            color: #6e6e6e; }
+          .article article.article-main .page-content .article_content figure:after {
+            content: "";
+            display: table;
+            clear: both; } }
+      @media screen and (max-width: 768px) {
         .article article.article-main .page-content .article_content figure img {
-          float: left;
-          width: 50%;
+          width: 100%;
           height: auto; }
         .article article.article-main .page-content .article_content figure figcaption {
-          position: absolute;
-          bottom: 0;
-          right: 0;
-          width: 40%;
-          font-size: 0.875rem;
+          font-size: 0.8125rem;
           font-family: "Oswald", Helvetica, Arial, sans-serif;
-          line-height: 1.53;
-          color: #6e6e6e; }
-        .article article.article-main .page-content .article_content figure:after {
-          content: "";
-          display: table;
-          clear: both; }
+          line-height: 1.38;
+          color: #6e6e6e; } }
       .article article.article-main .page-content .article_content p {
         font-size: 1rem;
         font-weight: 300;
@@ -3137,11 +3225,8 @@ body.article {
         clear: both;
         margin-bottom: 20px;
         margin-top: 10px; }
-        @media screen and (max-width: 768px) {
-          .article article.article-main .page-content .article_content p {
-            font-size: 0.875rem; } }
       .article article.article-main .page-content .article_content li {
-        font-size: 0.875rem;
+        font-size: 1rem;
         font-weight: 300;
         font-family: "acumin-pro", Helvetica, Arial, sans-serif;
         font-style: normal;
@@ -3686,9 +3771,9 @@ body[class*="_overview"] div.main-content ul.section-list {
         text-transform: uppercase; }
       .card article .content .author {
         display: none; }
-  .card article figure {
+  .card figure {
     z-index: 2; }
-    .card article figure picture:before {
+    .card figure picture:before {
       content: '';
       position: absolute;
       top: 0;
@@ -3699,7 +3784,7 @@ body[class*="_overview"] div.main-content ul.section-list {
       background-image: linear-gradient(to bottom, transparent, black);
       opacity: .6;
       z-index: 10; }
-    .card article figure img {
+    .card figure img {
       -o-object-fit: cover;
          object-fit: cover;
       width: 100%; }
