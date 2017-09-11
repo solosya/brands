@@ -21,11 +21,13 @@ gulp.task('scripts', function (callback) {
 });
 
 gulp.task('cache', function () {
+    var debug = true;
     return gulp.src('layouts/main.twig')
         .pipe(buster({
-            tokenRegExp: /\/(vendor\.min\.css)\?v=[0-9a-z]+/,
-            assetRoot: __dirname + '/static/deploy/',
-            hashes: hasher.hashes
+            tokenRegExp: /\/((.*?)\.min\.css)\?v=[0-9a-z]+/g,
+            assetRoot: __dirname,
+            hashes: hasher.hashes,
+            env: 'production'
         }))
         .pipe(gulp.dest('layouts/'));
 });
